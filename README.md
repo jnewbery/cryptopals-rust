@@ -1,6 +1,6 @@
 # cryptopals-rust
 
-Solutions for cryptopals in rust.
+Solutions for [cryptopals](https://cryptopals.com/) in rust.
 - [ ] Set 1
   - [X] 1.1
   - [X] 1.2
