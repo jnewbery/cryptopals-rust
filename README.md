@@ -2,8 +2,8 @@
 
 Solutions for cryptopals in rust.
 - [ ] Set 1
-  - [ ] 1.1
-  - [ ] 1.2
+  - [X] 1.1
+  - [X] 1.2
   - [ ] 1.3
   - [ ] 1.4
   - [ ] 1.5
