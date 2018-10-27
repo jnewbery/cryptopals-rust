@@ -5,19 +5,14 @@ use std::ops::BitXor;
 #[derive(Debug)]
 pub struct Bytes(Vec<u8>);
 
-pub trait ByteOperations {
-    // Convert the bytes into a base 64 string
-    fn to_base64(&self) -> String;
-    // Create a new Bytes object from a hex string slice
-    fn from_hex(&str) -> Bytes;
-}
-
-impl ByteOperations for Bytes {
-    fn to_base64(&self) -> String {
+impl Bytes {
+    pub fn to_base64(&self) -> String {
+        //! Return a string containing the bytes represented as base64
         base64::encode(&self.0)
     }
 
-    fn from_hex(hex: &str) -> Bytes {
+    pub fn from_hex(hex: &str) -> Bytes {
+        //! Construct a new Bytes object from a hex string slice
         let mut ret = Vec::new();
         for i in 0..(hex.len()/2) {
             let res = u8::from_str_radix(&hex[2*i .. 2*i+2], 16);
@@ -33,8 +28,8 @@ impl ByteOperations for Bytes {
 impl BitXor for Bytes {
     type Output = Bytes;
 
-    // xor each of the bytes
     fn bitxor(self, rhs: Bytes) -> Bytes {
+        //! xor each of the bytes. Both Bytes objects must be the same length.
         let mut ret = Vec::with_capacity(self.0.len());
         for i in 0..self.0.len() {
             ret.push(self.0[i] ^ rhs.0[i]);
@@ -44,8 +39,8 @@ impl BitXor for Bytes {
 }
 
 impl PartialEq for Bytes {
-    // equal if all the bytes are equal
     fn eq(&self, other: &Bytes) -> bool {
+        //! Bytes objects are equal if all the bytes are equal
         self.0 == other.0
     }
 }
@@ -53,7 +48,6 @@ impl PartialEq for Bytes {
 #[cfg(test)]
 mod tests {
     use Bytes;
-    use ByteOperations;
 
     #[test]
     fn test_hex_to_base64() {
