@@ -44,20 +44,3 @@ impl PartialEq for Bytes {
         self.0 == other.0
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use Bytes;
-
-    #[test]
-    fn test_hex_to_base64() {
-        assert_eq!(Bytes::from_hex("49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d").to_base64(),
-                   String::from("SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"));
-    }
-
-    #[test]
-    fn test_bytesxor() {
-        assert_eq!((Bytes::from_hex("1c0111001f010100061a024b53535009181c") ^ Bytes::from_hex("686974207468652062756c6c277320657965")),
-                   Bytes::from_hex("746865206b696420646f6e277420706c6179"));
-    }
-}
