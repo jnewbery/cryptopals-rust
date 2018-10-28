@@ -4,7 +4,7 @@ Solutions for [cryptopals](https://cryptopals.com/) in rust.
 - [ ] Set 1
   - [X] 1.1
   - [X] 1.2
-  - [ ] 1.3
+  - [X] 1.3
   - [ ] 1.4
   - [ ] 1.5
   - [ ] 1.6
