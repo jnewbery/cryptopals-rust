@@ -1,15 +1,15 @@
 # cryptopals-rust
 
 Solutions for [cryptopals](https://cryptopals.com/) in rust.
-- [ ] Set 1
-  - [X] 1.1
-  - [X] 1.2
-  - [X] 1.3
-  - [ ] 1.4
-  - [ ] 1.5
-  - [ ] 1.6
-  - [ ] 1.7
-  - [ ] 1.8
+- [ ] Set 1 Basics
+  - [X] 1.1 Convert hex to base64
+  - [X] 1.2 Fixed XOR
+  - [X] 1.3 Single-byte XOR cipher
+  - [ ] 1.4 Detect single-character XOR
+  - [ ] 1.5 Implement repeating-key XOR
+  - [ ] 1.6 Break repeating-key XOR
+  - [ ] 1.7 AES in ECB mode
+  - [ ] 1.8 Detect AES in ECB mode
 - [ ] Set 2
   - [ ] 2.1
   - [ ] 2.2
