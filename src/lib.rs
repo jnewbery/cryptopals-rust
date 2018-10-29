@@ -58,6 +58,10 @@ impl Bytes {
         };
         Bytes(ret)
     }
+    /// Construct a new Bytes object from a string slice.
+    pub fn from_str(s: &str) -> Bytes {
+        Bytes(String::from(s).into_bytes())
+    }
 }
 
 impl BitXor<Bytes> for Bytes {
@@ -82,6 +86,19 @@ impl BitXor<u8> for Bytes {
         let mut ret = Vec::with_capacity(self.0.len());
         for i in 0..self.0.len() {
             ret.push(self.0[i] ^ rhs);
+        };
+        Bytes(ret)
+    }
+}
+
+impl BitXor<Vec<u8>> for Bytes {
+    type Output = Bytes;
+
+    /// xor the bytes with a repeating key
+    fn bitxor(self, rhs: Vec<u8>) -> Bytes {
+        let mut ret = Vec::with_capacity(self.0.len());
+        for (i,b) in self.0.iter().enumerate() {
+            ret.push(self.0[i] ^ rhs[i % rhs.len()]);
         };
         Bytes(ret)
     }
@@ -142,5 +159,10 @@ mod tests {
                    [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
                     100.0, // letter 'i'
                     0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]);
+    }
+    #[test]
+    fn test_string_to_bytes() {
+        assert_eq!(Bytes::from_str("hello"),
+                   Bytes(vec![104, 101, 108, 108, 111]));
     }
 }

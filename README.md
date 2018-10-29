@@ -6,7 +6,7 @@ Solutions for [cryptopals](https://cryptopals.com/) in rust.
   - [X] 1.2 Fixed XOR
   - [X] 1.3 Single-byte XOR cipher
   - [ ] 1.4 Detect single-character XOR
-  - [ ] 1.5 Implement repeating-key XOR
+  - [X] 1.5 Implement repeating-key XOR
   - [ ] 1.6 Break repeating-key XOR
   - [ ] 1.7 AES in ECB mode
   - [ ] 1.8 Detect AES in ECB mode
